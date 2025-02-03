@@ -22,3 +22,13 @@ For this, you have a few environment variables to configure this workflow:
 | **DATE_TIMEZONE**  | The timezone for release (by default, Github uses GMT timezone)  |
 
 Then in the Actions tab of your GitHub repository, you can build the thesis.
+
+## Finding colored pages
+
+The python script `find_color_pages.py` will detect pages to be printed in color.
+CIACO will ask for those pages when printing the manuscript.
+
+The script is configured to parse the `thesis_elec.pdf`, be sure to modify the variable `thesis_file` if another pdf must be read.
+
+Thanks to Maxime Piraux for providing the original parsing script.
+
