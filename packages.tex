@@ -171,17 +171,28 @@
 	\endgroup
 }
 
-\titleformat{\chapter}[block]
-{\bfseries\filright}
-{}
-{0pt}
+\titleformat{\chapter}[block] % <shape> can be block, display, etc.
+{\bfseries\filright}        % <format> for the title
+{}                          % <label>
+{0pt}                       % <sep>
 {%
+	\ifnum\value{chapter}<10
+	% -- Format for chapters 1--9 --
 	\parbox{.865\textwidth}{\raggedright\Huge\selectfont#1}%
-	\hspace{6pt}%
+	\hfill%
 	\color{gray65}\vrule width 1.5pt
 	\hspace{6pt}%
 	\printchapternumber
+	\else
+	% -- Format for chapters >= 10 --
+	\parbox{.765\textwidth}{\raggedright\Huge\selectfont#1}%
+	\hfill
+	\color{gray65}\vrule width 1.5pt
+	\hspace{6pt}%
+	\printchapternumber
+	\fi
 }
+
 
 \titleformat{name=\chapter,numberless}[block]
 {\bfseries\filright}
